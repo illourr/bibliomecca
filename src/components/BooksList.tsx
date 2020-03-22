@@ -24,6 +24,7 @@ type BookActionsMenuProps = {
 const BookActionsMenu = ({ bookId }: BookActionsMenuProps) => {
   const handleDeleteBook = async (bookId: string) => {
     const result = await deleteBook(bookId);
+    // TODO: Clean up this handling
   };
 
   return (
@@ -58,7 +59,7 @@ const Book = ({ id, name, description, author }: IBook) => {
       <Box as="p" fontWeight="bold" color="teal.500">
         by {author}
       </Box>
-      <Box display="flex" justifyContent="end">
+      <Box display="flex" justifyContent="flex-end">
         <BookActionsMenu bookId={id} />
       </Box>
     </ListItem>
