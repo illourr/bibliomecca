@@ -2,6 +2,8 @@
 
 A place for people to share and checkout books for free.
 
+[Documentation](./documentation.md)
+
 # Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

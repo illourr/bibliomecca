@@ -9,7 +9,10 @@ import { BooksList } from './components/BooksList';
 
 const Header = styled(Box)``;
 
-const Footer = styled(Box)`
+interface FooterProps {
+  bg: string;
+}
+const Footer = styled(Box)<FooterProps>`
   text-align: center;
 `;
 
@@ -28,7 +31,9 @@ function App() {
           <CreateBookForm />
         </Box>
       </Grid>
-      <Footer as="footer">Copyright &copy; 2020 Bibliomecca LLC.</Footer>
+      <Footer as="footer" bg="gray.50">
+        Copyright &copy; 2020 Bibliomecca LLC.
+      </Footer>
     </ThemeProvider>
   );
 }

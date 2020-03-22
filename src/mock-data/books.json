@@ -1,0 +1,31 @@
+[
+  {
+    "author": "God",
+    "description": "Stories",
+    "isbn10": "0",
+    "isbn13": "0",
+    "name": "Bible"
+  },
+  {
+    "author": "John Brockman",
+    "description": "",
+    "isbn10": "",
+    "isbn13": "",
+    "name": "This Idea Must Die: Scientific Theories That Are Blocking Progress"
+  },
+  {
+    "author": "Trevor Noah",
+    "description": "Trevor Noah’s unlikely path from apartheid South Africa to the desk of The Daily Show began with a criminal act: his birth. Trevor was born to a white Swiss father and a black Xhosa mother at a time when such a union was punishable by five years in prison. Living proof of his parents’ indiscretion, Trevor was kept mostly indoors for the earliest years of his life, bound by the extreme and often absurd measures his mother took to hide him from a government that could, at any moment, steal him away. Finally liberated by the end of South Africa’s tyrannical white rule, Trevor and his mother set forth on a grand adventure, living openly and freely and embracing the opportunities won by a centuries-long struggle.",
+    "isbn10": "1531865046",
+    "isbn13": " 978-1531865047",
+    "name": "Born a Crime",
+    "photo": ""
+  },
+  {
+    "author": "Neil Gaiman",
+    "description": "",
+    "isbn10": "",
+    "isbn13": "",
+    "name": "American Gods"
+  }
+]

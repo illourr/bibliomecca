@@ -17,6 +17,7 @@
     "@types/styled-system": "^5.1.8",
     "emotion-theming": "^10.0.27",
     "firebase": "^7.12.0",
+    "formik": "^2.1.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",

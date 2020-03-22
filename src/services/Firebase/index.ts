@@ -1,3 +1,6 @@
+// Note: Unless you are writing new reads from the firestore you shouldn't
+// need to import from this file.
+
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import * as firebase from 'firebase/app';
 
@@ -23,4 +26,6 @@ var firebaseConfig = {
 const fire = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-export default fire;
+export { fire };
+
+export default firebase;
