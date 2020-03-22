@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import customTheme from './theme';
-import { Grid, Box, Heading, Button } from '@chakra-ui/core';
+import { Grid, Box, Heading } from '@chakra-ui/core';
 import './App.css';
 import CreateBookForm from './components/CreateBookForm';
 import { BooksList } from './components/BooksList';

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { List, ListItem, ListIcon } from '@chakra-ui/core';
 import { IBook } from '../types/Book';
-import fire from '../Firebase';
+import fire from '../services/Firebase';
 
 const useBooks = () => {
   const [books, setBooks] = useState<IBook[]>([]);
@@ -34,6 +34,7 @@ type BookProps = {
 };
 const Book = ({ name, description, author }: BookProps) => (
   <ListItem>
+    <ListIcon icon="sun" />
     {name} by {author}
   </ListItem>
 );
