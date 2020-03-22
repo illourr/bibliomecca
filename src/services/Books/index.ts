@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { IBook, IBookDraft } from '../../types/Book';
-import firebase, { fire } from '../../services/Firebase';
+import firebase, { logEvent, fire } from '../../services/Firebase';
 
 export const createBook = ({
   name,
@@ -10,7 +10,7 @@ export const createBook = ({
   isbn13
 }: IBookDraft): Promise<IBook | Error> => {
   const db = fire.firestore();
-
+  const createdAt = firebase.firestore.Timestamp.fromDate(new Date());
   return db
     .collection('books')
     .add({
@@ -19,9 +19,17 @@ export const createBook = ({
       description,
       isbn10,
       isbn13,
-      createdAt: firebase.firestore.Timestamp.fromDate(new Date())
+      createdAt
     })
     .then(docRef => {
+      logEvent('created_book', {
+        name,
+        author,
+        description,
+        createdAt,
+        isbn10,
+        isbn13
+      });
       return docRef;
     })
     .catch(err => err);
@@ -37,6 +45,7 @@ export const deleteBook = async (bookId: string): Promise<any | Error> => {
       .delete();
     console.log({ bookId, result });
     console.groupEnd();
+    logEvent('delete_book', { bookId });
     return result;
   } catch (err) {
     console.log({ err });

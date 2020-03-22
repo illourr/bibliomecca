@@ -11,7 +11,7 @@ import 'firebase/analytics';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyCHOoy2lYrjQMuPw9ffakzAkZVyRbqdvqE',
   authDomain: 'igneous-fort-228922.firebaseapp.com',
   databaseURL: 'https://igneous-fort-228922.firebaseio.com',
@@ -24,8 +24,8 @@ var firebaseConfig = {
 
 // Initialize Firebase
 const fire = firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+const { logEvent } = firebase.analytics();
 
-export { fire };
+export { fire, logEvent };
 
 export default firebase;
