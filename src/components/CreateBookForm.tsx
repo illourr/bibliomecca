@@ -9,7 +9,7 @@ import {
   FormErrorMessage
   // FormHelperText
 } from '@chakra-ui/core';
-import { IBook } from '../types/Book';
+import { IBookDraft } from '../types/Book';
 import { Formik, FormikValues } from 'formik';
 import { createBook } from '../services/Books';
 import { fetchVolumes } from '../services/GoogleBooks';
@@ -34,7 +34,7 @@ const CreateBookForm = () => {
   };
 
   const handleSubmit = async (
-    bookValues: IBook,
+    bookValues: IBookDraft,
     { setSubmitting }: FormikValues
   ) => {
     // setTimeout(() => {

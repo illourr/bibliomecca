@@ -1,28 +1,70 @@
 import React from 'react';
-import { List, ListItem, ListIcon, Button } from '@chakra-ui/core';
-import { useBooksFeed } from '../services/Books';
+import {
+  Box,
+  List,
+  ListItem,
+  Button,
+  Heading,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuGroup,
+  MenuDivider,
+  MenuOptionGroup,
+  MenuItemOption
+} from '@chakra-ui/core';
+import { useBooksFeed, deleteBook } from '../services/Books';
+import { IBook } from '../types/Book';
 
-type BookProps = {
-  name: string;
-  description: string;
-  author: string;
+type BookActionsMenuProps = {
+  bookId: string;
 };
-const Book = ({ name, description, author }: BookProps) => {
+
+const BookActionsMenu = ({ bookId }: BookActionsMenuProps) => {
+  const handleDeleteBook = async (bookId: string) => {
+    const result = await deleteBook(bookId);
+  };
+
+  return (
+    <Menu>
+      {/* 
+  // @ts-ignore */}
+      <MenuButton as={Button} rightIcon="chevron-down">
+        Settings
+      </MenuButton>
+      <MenuList>
+        <MenuItem color="red" onClick={() => handleDeleteBook(bookId)}>
+          Delete
+        </MenuItem>
+      </MenuList>
+    </Menu>
+  );
+};
+
+const Book = ({ id, name, description, author }: IBook) => {
   const isActive = true;
   return (
-    <ListItem>
-      <span>
-        <ListIcon icon="sun" />
-        {name} by {author}
-      </span>
-      {isActive && (
-        <Button ml="2" size="sm" variantColor="red">
-          Delete book
-        </Button>
-      )}
+    <ListItem
+      mb="4"
+      border="1px solid"
+      borderColor="teal.500"
+      borderRadius="3px"
+      p="2"
+    >
+      <Heading as="h3" size="md">
+        {name}
+      </Heading>
+      <Box as="p" fontWeight="bold" color="teal.500">
+        by {author}
+      </Box>
+      <Box display="flex" justifyContent="end">
+        <BookActionsMenu bookId={id} />
+      </Box>
     </ListItem>
   );
 };
+
 export const BooksList = () => {
   const books = useBooksFeed();
   return (

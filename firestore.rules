@@ -7,10 +7,10 @@ service cloud.firestore {
         //   - Validate updates
         //   - Deletes are not allowed
     match /books/{bookId} {
-      allow read, create;
-      allow update: if request.auth != null
-                    && request.resource.data.name == resource.data.name
-      allow delete: if false;
+      allow read, create, update, delete;
+      // allow update: if request.auth != null
+      //              && request.resource.data.name == resource.data.name
+      //allow delete: if false;
       
       // Ratings:
       //   - Authenticated user can read
