@@ -1,0 +1,25 @@
+[debug] [2020-03-22T20:41:49.556Z] ----------------------------------------------------------------------
+[debug] [2020-03-22T20:41:49.558Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dillo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-03-22T20:41:49.558Z] CLI Version:   7.15.1
+[debug] [2020-03-22T20:41:49.558Z] Platform:      win32
+[debug] [2020-03-22T20:41:49.558Z] Node Version:  v12.16.0
+[debug] [2020-03-22T20:41:49.559Z] Time:          Sun Mar 22 2020 16:41:49 GMT-0400 (Eastern Daylight Time)
+[debug] [2020-03-22T20:41:49.559Z] ----------------------------------------------------------------------
+[debug] [2020-03-22T20:41:49.559Z] 
+[debug] [2020-03-22T20:41:49.564Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-22T20:41:49.564Z] > authorizing via signed-in user
+[debug] [2020-03-22T20:41:49.564Z] [iam] checking project igneous-fort-228922 for permissions ["firebase.projects.get"]
+[debug] [2020-03-22T20:41:49.565Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/igneous-fort-228922:testIamPermissions  
+
+[debug] [2020-03-22T20:41:49.816Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-22T20:41:49.817Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/igneous-fort-228922  
+ 
+[debug] [2020-03-22T20:41:50.027Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\dillo\code\bibliomecca'...
+[info] 
+[debug] [2020-03-22T20:41:50.029Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/igneous-fort-228922/webApps/-/config  
+ 
+[debug] [2020-03-22T20:41:50.377Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000

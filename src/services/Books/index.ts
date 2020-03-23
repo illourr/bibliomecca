@@ -54,6 +54,15 @@ export const deleteBook = async (bookId: string): Promise<any | Error> => {
   }
 };
 
+export const getBookById = async (bookId: string): Promise<IBook> => {
+  const db = fire.firestore();
+  const book = await db
+    .collection('books')
+    .doc(bookId)
+    .get();
+  return book.data() as IBook;
+};
+
 export const useBooksFeed = () => {
   const [books, setBooks] = useState<IBook[]>([]);
   const addBook = (book: IBook) => {

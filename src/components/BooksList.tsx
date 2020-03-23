@@ -14,6 +14,7 @@ import {
   MenuOptionGroup,
   MenuItemOption
 } from '@chakra-ui/core';
+import { Link } from 'react-router-dom';
 import { useBooksFeed, deleteBook } from '../services/Books';
 import { IBook } from '../types/Book';
 
@@ -35,9 +36,12 @@ const BookActionsMenu = ({ bookId }: BookActionsMenuProps) => {
         Settings
       </MenuButton>
       <MenuList>
-        <MenuItem color="red" onClick={() => handleDeleteBook(bookId)}>
-          Delete
+        {/* 
+  // @ts-ignore */}
+        <MenuItem as={Link} to={`/book/${bookId}/checkout`}>
+          Checkout
         </MenuItem>
+        <MenuItem onClick={() => handleDeleteBook(bookId)}>Delete</MenuItem>
       </MenuList>
     </Menu>
   );
