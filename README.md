@@ -2,8 +2,8 @@
 
 A place for people to share and checkout books for free.
 
-[WIP Site](https://igneous-fort-228922.web.app/)
-[Documentation](./documentation.md)
+- [WIP Site](https://igneous-fort-228922.web.app/)
+- [Documentation](./documentation.md)
 
 # Create React App
 
