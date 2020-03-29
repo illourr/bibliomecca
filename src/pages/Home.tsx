@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Grid,
   Box,
@@ -10,9 +9,10 @@ import {
 } from '@chakra-ui/core';
 import CreateBookForm from '../components/CreateBookForm';
 import { BooksList } from '../components/BooksList';
+import Wrapper from '../components/Wrapper';
 
 const Home = () => (
-  <>
+  <Wrapper>
     <Breadcrumb>
       <BreadcrumbItem>
         {/* 
@@ -29,7 +29,7 @@ const Home = () => (
         <CreateBookForm />
       </Box>
     </Grid>
-  </>
+  </Wrapper>
 );
 
 export default Home;

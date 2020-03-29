@@ -1,23 +1,27 @@
 import React from 'react';
-import { Switch, Route, Link, useLocation } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
-import Wrapper from './components/Wrapper';
+import firebase from 'firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Main = () => {
-  const location = useLocation();
-  console.log({ location });
+  // TODO: Destructure error from useAuthState and setup an error state in the UI
+  const [user, loading] = useAuthState(firebase.auth());
   return (
-    <Wrapper>
-      <Switch>
-        <Route path="/book/:id/checkout">
-          <Checkout />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Wrapper>
+    <>
+      {loading ? (
+        <>Loading...</>
+      ) : (
+        <Switch>
+          <Route path="/book/:id/checkout">
+            <Checkout />
+          </Route>
+          <Route path="/">{user ? <Home /> : <Landing />}</Route>
+        </Switch>
+      )}
+    </>
   );
 };
 export default Main;

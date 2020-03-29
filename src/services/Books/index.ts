@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { IBook, IBookDraft } from '../../types/Book';
-import firebase, { logEvent, fire } from '../../services/Firebase';
+import firebase from 'firebase';
+import { logEvent, fire } from '../../services/Firebase';
 
 export const createBook = ({
   name,

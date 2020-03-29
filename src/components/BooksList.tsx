@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Box,
   List,
@@ -9,46 +9,103 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuGroup,
-  MenuDivider,
-  MenuOptionGroup,
-  MenuItemOption
+  AlertDialog,
+  AlertDialogOverlay,
+  AlertDialogContent,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { useBooksFeed, deleteBook } from '../services/Books';
 import { IBook } from '../types/Book';
 
-type BookActionsMenuProps = {
+interface BookActionsMenuProps {
   bookId: string;
-};
+}
+
+interface DeleteBookAlertProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onDelete: () => void;
+}
+
+function DeleteBookAlertDialog({
+  isOpen,
+  onClose,
+  onDelete
+}: DeleteBookAlertProps) {
+  const cancelRef = React.useRef();
+
+  return (
+    <>
+      <AlertDialog
+        isOpen={isOpen}
+        // @ts-ignore
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+      >
+        <AlertDialogOverlay />
+        <AlertDialogContent>
+          <AlertDialogHeader fontSize="lg" fontWeight="bold">
+            Delete Book
+          </AlertDialogHeader>
+
+          <AlertDialogBody>
+            Are you sure? You can't undo this action afterwards.
+          </AlertDialogBody>
+
+          <AlertDialogFooter>
+            <Button ref={cancelRef} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button variantColor="red" onClick={onDelete} ml={3}>
+              Delete
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
+  );
+}
 
 const BookActionsMenu = ({ bookId }: BookActionsMenuProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
   const handleDeleteBook = async (bookId: string) => {
-    const result = await deleteBook(bookId);
+    await deleteBook(bookId);
     // TODO: Clean up this handling
   };
 
   return (
-    <Menu>
-      {/* 
-  // @ts-ignore */}
-      <MenuButton as={Button} rightIcon="chevron-down">
-        Settings
-      </MenuButton>
-      <MenuList>
+    <>
+      <Menu>
         {/* 
   // @ts-ignore */}
-        <MenuItem as={Link} to={`/book/${bookId}/checkout`}>
-          Checkout
-        </MenuItem>
-        <MenuItem onClick={() => handleDeleteBook(bookId)}>Delete</MenuItem>
-      </MenuList>
-    </Menu>
+        <MenuButton as={Button} rightIcon="chevron-down">
+          Settings
+        </MenuButton>
+        <MenuList>
+          {/* 
+  // @ts-ignore */}
+          <MenuItem as={Link} to={`/book/${bookId}/checkout`}>
+            Checkout
+          </MenuItem>
+          <MenuItem onClick={handleOpen}>Delete</MenuItem>
+        </MenuList>
+      </Menu>
+      <DeleteBookAlertDialog
+        isOpen={isOpen}
+        onClose={handleClose}
+        onDelete={() => handleDeleteBook(bookId)}
+      />
+    </>
   );
 };
 
 const Book = ({ id, name, description, author }: IBook) => {
-  const isActive = true;
   return (
     <ListItem
       mb="4"
