@@ -14,10 +14,8 @@ import Wrapper from '../components/Wrapper';
 const Home = () => (
   <Wrapper>
     <Breadcrumb>
-      <BreadcrumbItem>
-        {/* 
-  // @ts-ignore */}
-        <BreadcrumbLink isCurrentPage>Home</BreadcrumbLink>
+      <BreadcrumbItem isCurrentPage>
+        <BreadcrumbLink>Home</BreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>
     <Divider />
