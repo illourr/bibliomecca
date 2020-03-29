@@ -1,8 +1,9 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { getBookById } from '../services/Books';
 import { IBook } from '../types/Book';
 import { useParams } from 'react-router-dom';
+import Wrapper from '../components/Wrapper';
 import {
   Box,
   Breadcrumb,
@@ -23,7 +24,7 @@ const Checkout = () => {
     }
   }, [id]);
   return (
-    <>
+    <Wrapper>
       <Breadcrumb>
         <BreadcrumbItem>
           {/* 
@@ -38,7 +39,7 @@ const Checkout = () => {
       </Breadcrumb>
       <Divider />
       <Box>{book !== null ? <>{book.name}</> : <p>No book found!</p>}</Box>
-    </>
+    </Wrapper>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import {
   Button,
   Box,
@@ -12,26 +12,27 @@ import {
 import { IBookDraft } from '../types/Book';
 import { Formik, FormikValues } from 'formik';
 import { createBook } from '../services/Books';
-import { fetchVolumes } from '../services/GoogleBooks';
+// TODO: Figure out how to use the google books API to validate a book exists before adding it.
+// import { fetchVolumes } from '../services/GoogleBooks';
 
 const CreateBookForm = () => {
-  const fetchTimerRef: React.MutableRefObject<number> = useRef<number>(0);
-  const [volumes, setVolumes] = useState([]);
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // TODO: Remove this later and use this volumes fetcher.
-    return;
+  // const fetchTimerRef: React.MutableRefObject<number> = useRef<number>(0);
+  // const [volumes, setVolumes] = useState([]);
+  // const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   // TODO: Remove this later and use this volumes fetcher.
+  //   return;
 
-    const query = e.target.value;
-    if (query.length === 0) {
-      return;
-    }
-    // search after 300 ms
-    const timerId = fetchTimerRef.current;
-    clearTimeout(timerId);
-    fetchTimerRef.current = setTimeout(() => {
-      fetchVolumes(query).then(volumes => {});
-    }, 300);
-  };
+  //   const query = e.target.value;
+  //   if (query.length === 0) {
+  //     return;
+  //   }
+  //   // search after 300 ms
+  //   const timerId = fetchTimerRef.current;
+  //   clearTimeout(timerId);
+  //   fetchTimerRef.current = setTimeout(() => {
+  //     fetchVolumes(query).then(volumes => {});
+  //   }, 300);
+  // };
 
   const handleSubmit = async (
     bookValues: IBookDraft,

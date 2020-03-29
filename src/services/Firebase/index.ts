@@ -10,6 +10,7 @@ import 'firebase/analytics';
 // Add the Firebase products that you want to use
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCHOoy2lYrjQMuPw9ffakzAkZVyRbqdvqE',
@@ -27,5 +28,3 @@ const fire = firebase.initializeApp(firebaseConfig);
 const { logEvent } = firebase.analytics();
 
 export { fire, logEvent };
-
-export default firebase;

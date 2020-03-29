@@ -11,16 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.nav-bar {
-  display: flex;
-  background: linear-gradient(-90deg, #84cf6a, #16c0b0);
-  height: 60px;
-  margin-bottom: 15px;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-bar h1 {
-  color: #fff;
-}
