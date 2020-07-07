@@ -20,7 +20,7 @@
     "firebase": "^7.12.0",
     "formik": "^2.1.4",
     "install": "^0.13.0",
-    "npm": "^6.14.4",
+    "npm": "^6.14.6",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-firebase-hooks": "^2.1.1",
